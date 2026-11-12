@@ -17,3 +17,5 @@ The piece is built to read at small size (one central tree, one red sun, one gol
 ## Implementation
 
 The entry program `main.py` is written in Python 3 using only the standard library. It locates the bundled `entry.png` artwork (a 1024x1024 JPEG image weighing 481,906 bytes, well under the 1 MiB competition limit) and deterministically copies it to the output directory specified by the `MAKEFUN_OUTPUT_DIR` environment variable, ensuring byte-identical reproduction across runs.
+
+When run within the grader container without `MAKEFUN_OUTPUT_DIR` set, the program defaults to `/output`. Outside the container, `MAKEFUN_OUTPUT_DIR` can be set to override this destination directory.

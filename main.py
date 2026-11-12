@@ -4,10 +4,8 @@ import shutil
 import sys
 
 def main():
-    output_dir = os.environ.get("MAKEFUN_OUTPUT_DIR")
-    if not output_dir:
-        print("Error: MAKEFUN_OUTPUT_DIR environment variable is not set.", file=sys.stderr)
-        sys.exit(1)
+    # MAKEFUN_OUTPUT_DIR stands in for /output outside the grader container; default to /output if unset.
+    output_dir = os.environ.get("MAKEFUN_OUTPUT_DIR") or "/output"
 
     os.makedirs(output_dir, exist_ok=True)
     
